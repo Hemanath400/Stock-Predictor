@@ -17,17 +17,16 @@ features = ['Close', 'Volume', 'MA_5', 'MA_20', 'MA_50', 'Volatility_5', 'Volati
 
 
 
-# Get the most recent data - FIXED: correct variable name
+# Get the most recent data 
 latest = df.iloc[-1]  # Most recent trading day
 
 from datetime import datetime
 
-# Add this after loading the data
 today = datetime.now().date()
 print(f"🕒 Today's Date: {today}")
 print(f"📊 Data Date: {latest.name.date()}")
 
-# Update the prediction text:
+
 print(f"✅ Prediction for: {latest.name.date()} → Next Trading Day")
 
 print(f"\n📈 LATEST MARKET DATA (as of {latest.name.date()}):")
@@ -37,7 +36,7 @@ print(f"📈 5-Day Average: ${latest['MA_5']:.2f}")
 print(f"📈 20-Day Average: ${latest['MA_20']:.2f}")
 print(f"🎯 Price vs 5-Day Avg: {latest['Vs_MA_5']:+.2%}")
 
-# Prepare data for prediction - FIXED: correct method name
+# Prepare data for prediction 
 latest_features = latest[features].values.reshape(1, -1)
 
 # Make prediction
@@ -77,4 +76,5 @@ print(f"✅ Prediction for: {latest.name.date()} → Tomorrow")
 
 print("\n" + "=" * 50)
 print("🎉 PREDICTION COMPLETE!")
+
 print("=" * 50)
