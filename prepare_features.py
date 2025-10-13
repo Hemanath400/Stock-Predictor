@@ -39,7 +39,7 @@ df = df.dropna()
 print(f"📊 After cleaning: {df.shape}")
 print(f"🎯 Target distribution:\n{df['Target'].value_counts()}")
 
-# 7. Prepare for ML - FIXED feature names to match what we created
+# 7. Prepare for ML 
 features = ['Close', 'Volume', 'MA_5', 'MA_20', 'MA_50', 'Volatility_5', 'Volatility_20',
            'Price_Change_1d', 'Price_Change_5d', 'Volume_Change_1d', 'Vs_MA_5', 'Vs_MA_20']
 
@@ -56,4 +56,5 @@ print(f"✅ Features prepared! Saved {len(features)} features to 'tesla_ml_ready
 # 9. Correlation analysis
 correlation_with_target = df[features + ['Target']].corr()['Target'].sort_values(ascending=False)
 print(f"\n📊 Feature correlations with target:")
+
 print(correlation_with_target)
